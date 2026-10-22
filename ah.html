@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BAO — Calculus</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#171716;color:#dedbd2;font-family:Arial,Helvetica,sans-serif;min-height:100vh}button{font:inherit}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E")}header{height:86px;margin:0 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #42423e}.logo{font-size:28px;letter-spacing:-2px;font-weight:900}.small{font:10px monospace;letter-spacing:2px;text-transform:uppercase}.muted{color:#96958c}main{max-width:1180px;margin:auto;padding:65px 5% 45px;display:grid;grid-template-columns:1fr 420px;gap:70px;align-items:center}.intro{align-self:stretch;display:flex;flex-direction:column;justify-content:space-between}.eyebrow{margin-bottom:30px}h1{font-size:clamp(80px,12vw,160px);line-height:.79;letter-spacing:-.085em;font-weight:400;margin:0 0 32px}h1 span{font-family:Georgia,serif;font-style:italic;font-weight:400}.description{font-size:13px;line-height:1.8;max-width:270px;color:#a4a298}.sculpture{height:160px;margin:28px 0;position:relative;overflow:hidden}.sculpture:before{content:"";position:absolute;left:40px;bottom:0;width:160px;height:120px;background:linear-gradient(115deg,#77786e,#343530 62%,#242520);clip-path:polygon(0 0,28% 23%,72% 23%,100% 0,95% 82%,73% 100%,27% 100%,5% 82%)}.sculpture:after{content:"";position:absolute;left:88px;bottom:47px;width:16px;height:3px;background:#111;box-shadow:49px 0 #111;transform:rotate(-5deg)}.caption{display:flex;gap:20px;align-items:center}.caption:before{content:"";width:34px;height:1px;background:#77776d}.calculator{background:#222320;border:1px solid #484941;box-shadow:18px 22px 0 #11120f;padding:24px}.machine-head{display:flex;justify-content:space-between;align-items:center;color:#aaa99f}.led{width:5px;height:5px;border-radius:50%;background:#c9ceaf;box-shadow:0 0 8px #c9ceaf66;display:inline-block;margin-right:7px}.screen{height:156px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;padding:30px 0 22px;border-bottom:1px solid #4b4c44;margin-bottom:18px;overflow:hidden}.expression{height:22px;font:12px monospace;color:#a1a295;max-width:100%;overflow:hidden;white-space:nowrap}.value{font-size:58px;font-weight:300;letter-spacing:-3px;line-height:1.2;max-width:100%;overflow-x:auto;white-space:nowrap;scrollbar-width:none}.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.keys button{height:64px;border:1px solid #42433c;background:#2c2d29;color:#e2dfd4;cursor:pointer;font-size:23px;transition:background .14s,transform .1s}.keys button:hover{background:#44453c}.keys button:active{transform:translateY(2px)}button:focus-visible{outline:2px solid #ddd9c6;outline-offset:2px}.keys .utility{font-size:16px;color:#abae9e;background:#252620}.keys .operator{background:#373930;color:#d4d8bd}.keys .equals{background:#d2d4bc;color:#1d2018;border-color:#d2d4bc}.keys .equals:hover{background:#e8ead6}.machine-footer{margin-top:21px;display:flex;justify-content:space-between;font:9px monospace;letter-spacing:1px;color:#929587}.history{border-top:1px solid #42423e;max-width:1060px;margin:25px auto 0;padding:24px 0 40px}.history-head{display:flex;align-items:center;justify-content:space-between}.clear-history{background:none;border:0;color:#a7a69b;font:10px monospace;cursor:pointer;text-decoration:underline;text-underline-offset:4px}.entries{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.entry{border:1px solid #41423a;padding:12px 16px;background:transparent;color:#bfbeaf;text-align:left;cursor:pointer;font:12px monospace}.entry:hover{background:#303129}.empty{font:12px monospace;color:#777a70}.bottom{display:flex;justify-content:space-between;margin:0 5%;padding:22px 0;border-top:1px solid #42423e;color:#929386}
+@media(max-width:800px){main{grid-template-columns:1fr;gap:25px;padding-top:35px;max-width:500px}.intro{display:block}h1{font-size:88px;margin-bottom:18px}.description{max-width:320px}.sculpture,.caption{display:none}.eyebrow{margin-bottom:22px}.calculator{box-shadow:9px 10px 0 #11120f}.history{margin:35px 6% 0}.bottom{gap:15px}.keys button{height:59px}header{height:65px}}
+</style>
+</head>
+<body>
+<header><div class="logo">BAO®</div><div class="small muted">Objects of calculation / 001</div></header>
+<main>
+<section class="intro">
+<div><div class="eyebrow small muted">Точность в чистой форме</div><h1>LESS.<br><span>But exact.</span></h1><p class="description">Ничего лишнего. Только числа,<br>форма и немного бао.</p></div>
+<div><div class="sculpture" aria-label="Геометрическая скульптура кота" role="img"></div><div class="caption small muted">BAO / Concrete companion</div></div>
+</section>
+<section class="calculator" aria-label="Калькулятор BAO">
+<div class="machine-head small"><span>BAO — CALCULUS</span><span><i class="led"></i>READY</span></div>
+<div class="screen"><div class="expression" id="expression"></div><output class="value" id="value" aria-live="polite">0</output></div>
+<div class="keys">
+<button class="utility" data-action="clear">AC</button>
+<button class="utility" data-action="sign" aria-label="Изменить знак">±</button>
+<button class="utility" data-action="percent">%</button>
+<button class="operator" data-op="/" aria-label="Разделить">÷</button>
+<button data-digit="7">7</button><button data-digit="8">8</button><button data-digit="9">9</button><button class="operator" data-op="*" aria-label="Умножить">×</button>
+<button data-digit="4">4</button><button data-digit="5">5</button><button data-digit="6">6</button><button class="operator" data-op="-" aria-label="Вычесть">−</button>
+<button data-digit="1">1</button><button data-digit="2">2</button><button data-digit="3">3</button><button class="operator" data-op="+" aria-label="Сложить">+</button>
+<button class="utility" data-action="back" aria-label="Удалить цифру">⌫</button><button data-digit="0">0</button><button data-digit=".">,</button><button class="equals" data-action="equals" aria-label="Равно">=</button>
+</div>
+<div class="machine-footer"><span>EST. BAO / NO. 001</span><span>KEYBOARD ENABLED</span></div>
+</section>
+</main>
+<section class="history">
+<div class="history-head"><span class="small muted">След вычислений</span><button class="clear-history" id="clearHistory">ОЧИСТИТЬ</button></div>
+<div class="entries" id="entries"><span class="empty">Пока только тишина</span></div>
+</section>
+<footer class="bottom small"><span>BAO / Arithmetic atelier</span><span>Числа остаются здесь</span></footer>
+<script>
+(()=>{
+let input='0',acc=null,op=null,fresh=false,error=false,history=[];
+const value=document.getElementById('value'),expression=document.getElementById('expression');
+const symbol=o=>({'/':'÷','*':'×','-':'−','+':'+'}[o]||'');
+const pretty=s=>String(s).replace('.',',');
+const normalize=n=>{if(!Number.isFinite(n))throw Error();return String(Number(n.toPrecision(12)))};
+function render(){value.textContent=error?'Ошибка':pretty(input);value.style.fontSize=input.length>12?'32px':input.length>9?'43px':'58px';}
+function reset(){input='0';acc=null;op=null;fresh=false;error=false;expression.textContent='';render();}
+function digit(d){
+if(error)reset();
+if(fresh){input='0';fresh=false;if(!op)expression.textContent='';}
+if(d==='.'){if(!input.includes('.')&&!input.includes('e'))input+='.';}
+else if(input.replace(/[-.]/g,'').length<12)input=input==='0'?d:input==='-0'?'-'+d:input+d;
+render();
+}
+function calculate(a,b,o){if(o==='/'&&b===0)throw Error();return normalize(o==='+'?a+b:o==='-'?a-b:o==='*'?a*b:a/b);}
+function fail(){error=true;acc=null;op=null;expression.textContent='Невозможно выполнить вычисление';render();}
+function setOp(next){
+if(error)return;
+try{
+if(op&&!fresh)input=calculate(acc,Number(input),op);
+acc=Number(input);op=next;fresh=true;expression.textContent=pretty(input)+' '+symbol(op);render();
+}catch{fail();}
+}
+function equals(){
+if(error||!op||fresh)return;
+try{
+const label=pretty(acc)+' '+symbol(op)+' '+pretty(input);
+input=calculate(acc,Number(input),op);
+expression.textContent=label+' =';
+history.unshift({label,result:input});history=history.slice(0,6);renderHistory();
+acc=null;op=null;fresh=true;render();
+}catch{fail();}
+}
+function renderHistory(){
+const box=document.getElementById('entries');box.replaceChildren();
+if(!history.length){const e=document.createElement('span');e.className='empty';e.textContent='Пока только тишина';box.append(e);return;}
+history.forEach(item=>{const b=document.createElement('button');b.className='entry';b.textContent=item.label+' = '+pretty(item.result);b.title='Использовать результат';b.onclick=()=>{input=item.result;acc=null;op=null;fresh=true;error=false;expression.textContent='Из истории';render();};box.append(b);});
+}
+function action(a){
+if(a==='clear')return reset();
+if(a==='equals')return equals();
+if(error)return;
+if(a==='sign'){if(input!=='0')input=input.startsWith('-')?input.slice(1):'-'+input;}
+if(a==='back'){if(fresh){if(op)return;fresh=false;expression.textContent='';}input=input.includes('e')?'0':input.slice(0,-1);if(!input||input==='-')input='0';}
+if(a==='percent'){
+try{input=normalize(op&&(op==='+'||op==='-')?acc*Number(input)/100:Number(input)/100);fresh=false;}catch{fail();return;}
+}
+render();
+}
+document.querySelector('.keys').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.digit!==undefined)digit(b.dataset.digit);else if(b.dataset.op)setOp(b.dataset.op);else action(b.dataset.action);});
+document.getElementById('clearHistory').onclick=()=>{history=[];renderHistory();};
+document.addEventListener('keydown',e=>{
+if(e.ctrlKey||e.metaKey||e.altKey)return;
+const k=e.key;
+if(/^[0-9]$/.test(k))digit(k);
+else if(k==='.'||k===',')digit('.');
+else if(['+','-','*','/'].includes(k))setOp(k);
+else if(k==='='||k==='Enter'){if(document.activeElement.tagName==='BUTTON')return;equals();}
+else if(k==='Backspace')action('back');
+else if(k==='Escape'||k==='Delete')reset();
+else if(k==='%')action('percent');
+else return;
+e.preventDefault();
+});
+})();
+</script>
+</body>
+</html>
